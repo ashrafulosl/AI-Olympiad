@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style> ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #f1f1f1; } ::-webkit-scrollbar-thumb { background: #888; border-radius: 3px;} ::-webkit-scrollbar-thumb:hover { background: #555; } </style>
+</head>
+<body class="bg-gray-100 font-sans flex flex-col min-h-screen">
+
+    <!-- Minimal Header -->
+    <header class="bg-white shadow-sm p-4 flex justify-between items-center sticky top-0 z-10">
+         <h1 class="text-xl font-semibold text-gray-800">Quiz: Kinematics Check</h1>
+        <div class="flex items-center space-x-4">
+             <span class="text-sm text-gray-500 font-medium hidden sm:inline">Quiz in Progress</span>
+            <div class="text-lg font-bold text-red-600 bg-red-100 px-3 py-1 rounded">
+                Time Remaining: <span id="timer">14:35</span> <!-- JS needed for actual timer -->
+            </div>
+        </div>
+    </header>
+
+     <!-- Main Content Area -->
+    <main class="flex-1 flex flex-col p-4 md:p-8 items-center">
+        <div class="w-full max-w-3xl bg-white p-6 rounded-lg shadow-md flex-1 flex flex-col">
+            <form class="space-y-8">
+
+                <!-- Question 1: MCQ -->
+                <div class="p-4 border rounded-md bg-white">
+                    <p class="font-medium text-gray-800 mb-3">1. What is the primary difference between speed and velocity?</p>
+                    <div class="space-y-2">
+                        <label class="flex items-center p-2 rounded hover:bg-gray-50 cursor-pointer">
+                            <input type="radio" name="q1" value="a" class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                            <span class="ml-3 text-sm text-gray-700">Speed includes direction, velocity does not.</span>
+                        </label>
+                        <label class="flex items-center p-2 rounded hover:bg-gray-50 cursor-pointer">
+                            <input type="radio" name="q1" value="b" class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                            <span class="ml-3 text-sm text-gray-700">Velocity includes direction, speed does not.</span>
+                        </label>
+                         <label class="flex items-center p-2 rounded hover:bg-gray-50 cursor-pointer">
+                            <input type="radio" name="q1" value="c" class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                            <span class="ml-3 text-sm text-gray-700">They are the same thing.</span>
+                        </label>
+                        <label class="flex items-center p-2 rounded hover:bg-gray-50 cursor-pointer">
+                            <input type="radio" name="q1" value="d" class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                            <span class="ml-3 text-sm text-gray-700">Speed measures change in velocity.</span>
+                        </label>
+                    </div>
+                </div>
+
+                 <!-- Question 2: Fill in the Gap -->
+                <div class="p-4 border rounded-md bg-white">
+                    <p class="font-medium text-gray-800 mb-3">2. Complete the sentence: Acceleration is the rate of change of ____.</p>
+                    <input type="text" name="q2" class="mt-1 block w-full sm:w-1/2 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Your answer...">
+                </div>
+
+                <!-- Question 3: True/False -->
+                <div class="p-4 border rounded-md bg-white">
+                    <p class="font-medium text-gray-800 mb-3">3. True or False: An object moving at a constant speed in a circle is accelerating.</p>
+                     <div class="space-y-2">
+                        <label class="flex items-center p-2 rounded hover:bg-gray-50 cursor-pointer">
+                            <input type="radio" name="q3" value="true" class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                            <span class="ml-3 text-sm text-gray-700">True</span>
+                        </label>
+                        <label class="flex items-center p-2 rounded hover:bg-gray-50 cursor-pointer">
+                            <input type="radio" name="q3" value="false" class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                            <span class="ml-3 text-sm text-gray-700">False</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 4: Matching -->
+                <div class="p-4 border rounded-md bg-white">
+                    <p class="font-medium text-gray-800 mb-3">4. Match the term with its description:</p>
+                     <div class="space-y-3 text-sm">
+                         <div class="flex flex-col sm:flex-row sm:items-center">
+                             <span class="font-semibold w-24 sm:w-auto sm:mr-2">A. Distance:</span>
+                             <span class="text-gray-600">Total path length covered.</span>
+                         </div>
+                          <div class="flex flex-col sm:flex-row sm:items-center">
+                             <span class="font-semibold w-24 sm:w-auto sm:mr-2">B. Displacement:</span>
+                             <span class="text-gray-600">Change in position from start to end (vector).</span>
+                         </div>
+                         <div class="flex flex-col sm:flex-row sm:items-center">
+                              <span class="font-semibold w-24 sm:w-auto sm:mr-2">C. Inertia:</span>
+                             <span class="text-gray-600">Resistance to change in motion.</span>
+                         </div>
+                     </div>
+                     <p class="text-xs text-gray-500 mt-2">(Note: Interactive matching requires JavaScript. This is a visual representation.)</p>
+                </div>
+
+                <!-- Question 5: Short Answer -->
+                <div class="p-4 border rounded-md bg-white">
+                     <p class="font-medium text-gray-800 mb-2">5. Briefly explain Newton's First Law of Motion in your own words.</p>
+                     <textarea name="q5" rows="3" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Your explanation here..."></textarea>
+                 </div>
+
+
+                 <!-- Submit Button -->
+                <div class="mt-8 flex justify-end pt-4 border-t">
+                    <button type="button" onclick="alert('Quiz Submitted (Simulation)! Results will be available soon.')" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded transition duration-150 ease-in-out">
+                        Submit Quiz
+                    </button>
+                 </div>
+
+            </form>
+        </div>
+    </main>
+
+</body>
+</html>
