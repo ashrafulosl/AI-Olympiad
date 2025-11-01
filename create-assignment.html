@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Assignment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+     <style> ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #f1f1f1; } ::-webkit-scrollbar-thumb { background: #888; border-radius: 3px;} ::-webkit-scrollbar-thumb:hover { background: #555; } </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <!-- Sidebar -->
+        <aside class="hidden md:flex w-64 flex-col space-y-2 bg-gray-800 text-white p-4 overflow-y-auto">
+            <h2 class="text-xl font-semibold mb-4">ThinkNext</h2>
+            <nav class="flex-1">
+                <a href="teacher-dashboard.html" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-700">
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    Dashboard
+                </a>
+                <a href="#classes" class="flex items-center px-4 py-2 mt-2 rounded-md hover:bg-gray-700">
+                     <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                     Classes
+                </a>
+                <a href="assignment-results.html" class="flex items-center px-4 py-2 mt-2 rounded-md hover:bg-gray-700">
+                     <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    Assignments
+                </a>
+                 <a href="teacher-transcribe.html" class="flex items-center px-4 py-2 mt-2 bg-gray-700 rounded-md hover:bg-gray-600"> <!-- Highlight Transcribe -->
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                    Transcribe
+                </a>
+                 <a href="teacher-generate-quiz.html" class="flex items-center px-4 py-2 mt-2 rounded-md hover:bg-gray-700">
+                     <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.79 4 4s-1.79 4-4 4c-1.742 0-3.223-.835-3.772-2M12 5v.01M12 19v.01M12 12a1 1 0 110-2 1 1 0 010 2z"></path></svg>
+                    Generate Quiz
+                </a>
+                 <a href="#settings" class="flex items-center px-4 py-2 mt-2 rounded-md hover:bg-gray-700">
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    Settings
+                </a>
+            </nav>
+            <a href="student-dashboard.html" class="text-sm text-center text-blue-300 hover:text-blue-100 mt-4">Switch to Student View</a>
+        </aside>
+
+        <!-- Main content -->
+        <div class="flex-1 flex flex-col overflow-y-auto">
+            <!-- Top bar -->
+             <header class="bg-white shadow-sm p-4 flex justify-between items-center">
+                  <button class="md:hidden text-gray-600">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+                 <h1 class="text-xl font-semibold text-gray-800 md:ml-0 ml-4">Create Assignment</h1>
+                 <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <svg class="h-6 w-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                        <span class="absolute top-0 right-0 h-2 w-2 bg-orange-500 rounded-full"></span>
+                    </div>
+                    <div class="flex items-center">
+                         <img src="https://via.placeholder.com/40" alt="Teacher Avatar" class="h-8 w-8 rounded-full mr-2">
+                        <span class="text-gray-700">Dr. Evelyn Reed</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content area -->
+            <main class="p-6 flex-1">
+                <div class="bg-white p-8 rounded-lg shadow-md max-w-4xl mx-auto">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-6">Create New Assignment</h2>
+
+                    <form class="space-y-6">
+                        <div>
+                            <label for="assignment-title" class="block text-sm font-medium text-gray-700">Assignment Title</label>
+                            <input type="text" id="assignment-title" name="assignment-title" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="e.g., History Essay: Causes of WWI">
+                        </div>
+
+                        <div>
+                            <label for="instructions" class="block text-sm font-medium text-gray-700">Instructions</label>
+                            <textarea id="instructions" name="instructions" rows="4" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Explain the task clearly..."></textarea>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="assignment-type" class="block text-sm font-medium text-gray-700">Type of Assignment</label>
+                                <select id="assignment-type" name="assignment-type" class="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    <option>Critical Thinking Essay</option>
+                                    <option>Short Answer Analysis</option>
+                                    <option>Quick Quiz</option>
+                                    <option>Problem Solving Task</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="assignment-type" class="block text-sm font-medium text-gray-700">Assignment Assigned To</label>
+                                <select id="assignment-type" name="assignment-type" class="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    <option>Individual</option>
+                                    <option>Group</option>
+                                </select>
+                            </div>
+                            <!-- <div>
+                                <label for="assign-to" class="block text-sm font-medium text-gray-700">Assign to Class(es)</label>
+                                <select id="assign-to" name="assign-to" class="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    <option>Grade 10 - Physics</option>
+                                    <option>Grade 11 - Chemistry</option>
+                                    <option>All Classes</option>
+                                </select>
+                            </div> -->
+                        </div>
+
+                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                             <div>
+                                <label for="due-date" class="block text-sm font-medium text-gray-700">Due Date and Time</label>
+                                <input type="datetime-local" id="due-date" name="due-date" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                             </div>
+                             <div>
+                                <label for="time-limit" class="block text-sm font-medium text-gray-700">Time Limit (minutes)</label>
+                                <input type="number" id="time-limit" name="time-limit" min="0" placeholder="e.g., 30 (0 for no limit)" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900 mb-3">Settings</h3>
+                             <div class="space-y-4">
+                                <!-- Simulate Switches (Real switches need JS) -->
+                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-md border">
+                                    <span class="text-sm font-medium text-gray-700">Use AI Grading</span>
+                                    <span class="text-sm font-bold text-green-600 px-3 py-1 bg-green-100 rounded-full">ON</span>
+                                </div>
+                                 <div class="flex items-center justify-between p-3 bg-gray-50 rounded-md border">
+                                    <span class="text-sm font-medium text-gray-700">Give AI Feedback</span>
+                                    <span class="text-sm font-bold text-green-600 px-3 py-1 bg-green-100 rounded-full">ON</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-md border">
+                                    <span class="text-sm font-medium text-gray-700">Lock Student's Screen (Focus Mode)</span>
+                                     <span class="text-sm font-bold text-green-600 px-3 py-1 bg-green-100 rounded-full">ON</span>
+                                </div>
+                                 <div class="flex items-center justify-between p-3 bg-gray-50 rounded-md border">
+                                    <span class="text-sm font-medium text-gray-700">Watch Student with Camera (Proctoring)</span>
+                                     <span class="text-sm font-bold text-red-600 px-3 py-1 bg-red-100 rounded-full">OFF</span>
+                                </div>
+                             </div>
+                        </div>
+
+                        <div class="flex justify-end space-x-3 pt-4">
+                            <button type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded transition duration-150 ease-in-out">
+                                Save Draft
+                            </button>
+                            <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-150 ease-in-out">
+                                Assign Now
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

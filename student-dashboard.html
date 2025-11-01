@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+     <style> ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #f1f1f1; } ::-webkit-scrollbar-thumb { background: #888; border-radius: 3px;} ::-webkit-scrollbar-thumb:hover { background: #555; } </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <aside class="hidden md:flex w-64 flex-col space-y-2 bg-gray-800 text-white p-4 overflow-y-auto">
+            <h2 class="text-xl font-semibold mb-4">ThinkNext</h2>
+            <nav class="flex-1">
+                 <a href="student-dashboard.html" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-700">
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    Dashboard
+                </a>
+                <a href="student-assignment-submission.html" class="flex items-center px-4 py-2 mt-2 rounded-md hover:bg-gray-700">
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                     Assignments
+                </a>
+                <a href="student-result-details.html" class="flex items-center px-4 py-2 mt-2 rounded-md hover:bg-gray-700">
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    Grades
+                </a>
+                 <a href="student-quizzes.html" class="flex items-center px-4 py-2 mt-2 bg-gray-700 rounded-md hover:bg-gray-600"> <!-- Highlight Quizzes -->
+                     <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.79 4 4s-1.79 4-4 4c-1.742 0-3.223-.835-3.772-2M12 5v.01M12 19v.01M12 12a1 1 0 110-2 1 1 0 010 2z"></path></svg>
+                    Quizzes
+                </a>
+                 <a href="student-chat.html" class="flex items-center px-4 py-2 mt-2 rounded-md hover:bg-gray-700">
+                     <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 5.523-4.477 10-10 10S1 17.523 1 12 5.477 2 11 2s10 4.477 10 10z"></path></svg>
+                    Chat with AI
+                </a>
+                 <a href="#leaderboard" class="flex items-center px-4 py-2 mt-2 rounded-md hover:bg-gray-700">
+                     <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    Leaderboard
+                </a>
+            </nav>
+             <a href="teacher-dashboard.html" class="text-sm text-center text-blue-300 hover:text-blue-100 mt-4">Switch to Teacher View</a>
+        </aside>
+
+        <!-- Main content -->
+        <div class="flex-1 flex flex-col overflow-y-auto">
+             <!-- Top bar -->
+            <header class="bg-white shadow-sm p-4 flex justify-between items-center">
+                 <button class="md:hidden text-gray-600">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+                 <h1 class="text-xl font-semibold text-gray-800 md:ml-0 ml-4">Student Dashboard</h1>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                         <svg class="h-6 w-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                        <!-- No orange dot shown for student -->
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://via.placeholder.com/40?text=S" alt="Student Avatar" class="h-8 w-8 rounded-full mr-2">
+                        <span class="text-gray-700">Alex Johnson</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content area -->
+            <main class="p-6 flex-1">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-semibold text-gray-700">Hello, Alex!</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Upcoming Homework Card -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-lg font-semibold mb-3 text-gray-800">Upcoming Homework</h3>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between items-center">
+                                <div>
+                                    <span class="text-gray-700 block">History Essay</span>
+                                    <span class="text-sm text-orange-600 font-medium">Due Nov 5</span>
+                                </div>
+                                <a href="student-assignment-submission.html" class="bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 px-3 rounded">Start</a>
+                            </li>
+                            <li class="flex justify-between items-center">
+                                <div>
+                                    <span class="text-gray-700 block">Math Problem Set</span>
+                                    <span class="text-sm text-gray-500">Due Nov 8</span>
+                                </div>
+                                <a href="#" class="bg-gray-300 text-gray-700 text-sm py-1 px-3 rounded cursor-not-allowed">View</a>
+                            </li>
+                             <li class="flex justify-between items-center">
+                                <div>
+                                    <span class="text-gray-700 block">Science Report Draft</span>
+                                    <span class="text-sm text-gray-500">Due Nov 10</span>
+                                </div>
+                                <a href="student-result-details.html" class="bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 px-3 rounded">View Feedback</a> <!-- Link to results page -->
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Recent Feedback Card -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-lg font-semibold mb-3 text-gray-800">Recent Feedback</h3>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li>You got feedback for 'Science Report Draft'. <a href="student-result-details.html" class="text-blue-500 hover:underline">View</a></li>
+                            <li>Feedback available for 'History Quiz'. <a href="#" class="text-blue-500 hover:underline">View</a></li>
+                            <li>AI comments added to 'Math Practice'. <a href="#" class="text-blue-500 hover:underline">View</a></li>
+                        </ul>
+                    </div>
+
+                     <!-- Gamification/Progress Card -->
+                     <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-lg font-semibold mb-3 text-gray-800">Your Progress</h3>
+                        <div class="space-y-3">
+                            <p class="text-gray-700">Points: <span class="font-bold">1250</span></p>
+                            <p class="text-gray-700">Rank: <span class="font-bold">#15</span></p>
+                            <div>
+                                <span class="text-sm text-gray-600">Next Rank Progress:</span>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5 mt-1">
+                                  <div class="bg-blue-600 h-2.5 rounded-full" style="width: 60%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="text-sm text-gray-600">Badges Earned:</span>
+                                <div class="flex space-x-2 mt-1">
+                                    <span class="text-xl">🏆</span> <!-- Placeholder Badge 1 -->
+                                    <span class="text-xl">💡</span> <!-- Placeholder Badge 2 -->
+                                    <span class="text-xl">🎯</span> <!-- Placeholder Badge 3 -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

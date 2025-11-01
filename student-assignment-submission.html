@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Assignment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+     <style> ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #f1f1f1; } ::-webkit-scrollbar-thumb { background: #888; border-radius: 3px;} ::-webkit-scrollbar-thumb:hover { background: #555; } </style>
+</head>
+<body class="bg-gray-100 font-sans flex flex-col min-h-screen">
+
+    <!-- Minimal Header -->
+    <header class="bg-white shadow-sm p-4 flex justify-between items-center">
+         <h1 class="text-xl font-semibold text-gray-800">History Essay: Causes of WWI</h1>
+        <div class="flex items-center space-x-4">
+             <span class="text-sm text-gray-500 font-medium hidden sm:inline">Focus Mode Active</span>
+            <div class="text-lg font-bold text-orange-600 bg-orange-100 px-3 py-1 rounded">
+                Time Remaining: <span id="timer">29:59</span> <!-- JS needed for actual timer -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 flex flex-col p-4 md:p-8 items-center">
+        <div class="w-full max-w-4xl bg-white p-6 rounded-lg shadow-md flex-1 flex flex-col">
+
+             <!-- Instructions -->
+            <div class="mb-4 border-b pb-4">
+                <h2 class="text-lg font-semibold text-gray-800 mb-2">Instructions</h2>
+                <p class="text-sm text-gray-600">Write a short essay (approx. 300 words) analyzing the primary causes of World War I. Focus on the interplay between militarism, alliances, imperialism, and nationalism (MAIN). Ensure your analysis is clear and well-supported.</p>
+            </div>
+
+             <!-- Answer Box -->
+             <div class="flex-1 flex flex-col">
+                 <label for="student-answer" class="block text-sm font-medium text-gray-700 mb-1">Your Answer:</label>
+                <textarea id="student-answer" name="student-answer"
+                          class="flex-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm resize-none"
+                          placeholder="Start typing your essay here..."
+                          oninput="updateWordCount()"></textarea> <!-- Simple JS call for word count -->
+            </div>
+
+            <!-- Word Count & Submit -->
+            <div class="mt-4 flex justify-between items-center pt-4 border-t">
+                <span class="text-sm text-gray-500">Word Count: <span id="word-count">0</span> / 300</span>
+                <a href="student-dashboard.html" onclick="alert('Assignment Submitted (Simulation)! Redirecting to dashboard.')" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded transition duration-150 ease-in-out">
+                     Submit
+                 </a>
+             </div>
+             <span class="text-xs text-gray-400 text-center mt-2 sm:hidden">Focus Mode Active</span>
+
+        </div>
+    </main>
+
+    <script>
+        // Simple word count simulation
+        function updateWordCount() {
+            const text = document.getElementById('student-answer').value;
+            const words = text.trim().split(/\s+/).filter(word => word.length > 0);
+            document.getElementById('word-count').innerText = words.length;
+        }
+        // Placeholder for timer logic (would need setInterval in real JS)
+        // let timeLeft = 30 * 60; // seconds
+        // setInterval(() => { ... update #timer ... }, 1000);
+    </script>
+
+</body>
+</html>

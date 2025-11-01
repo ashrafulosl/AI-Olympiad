@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #888; border-radius: 3px;}
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+        /* Basic chat bubble styling */
+        .chat-bubble-user { background-color: #DBEAFE; /* blue-100 */ align-self: flex-end; }
+        .chat-bubble-ai { background-color: #F3F4F6; /* gray-100 */ align-self: flex-start; }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <aside class="hidden md:flex w-64 flex-col space-y-2 bg-gray-800 text-white p-4 overflow-y-auto">
+            <h2 class="text-xl font-semibold mb-4">ThinkNext</h2>
+            <nav class="flex-1">
+                 <a href="student-dashboard.html" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-700">
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    Dashboard
+                </a>
+                <a href="student-assignment-submission.html" class="flex items-center px-4 py-2 mt-2 rounded-md hover:bg-gray-700">
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                     Assignments
+                </a>
+                <a href="student-result-details.html" class="flex items-center px-4 py-2 mt-2 rounded-md hover:bg-gray-700">
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    Grades
+                </a>
+                 <a href="student-quizzes.html" class="flex items-center px-4 py-2 mt-2 bg-gray-700 rounded-md hover:bg-gray-600"> <!-- Highlight Quizzes -->
+                     <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.79 4 4s-1.79 4-4 4c-1.742 0-3.223-.835-3.772-2M12 5v.01M12 19v.01M12 12a1 1 0 110-2 1 1 0 010 2z"></path></svg>
+                    Quizzes
+                </a>
+                 <a href="student-chat.html" class="flex items-center px-4 py-2 mt-2 rounded-md hover:bg-gray-700">
+                     <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 5.523-4.477 10-10 10S1 17.523 1 12 5.477 2 11 2s10 4.477 10 10z"></path></svg>
+                    Chat with AI
+                </a>
+                 <a href="#leaderboard" class="flex items-center px-4 py-2 mt-2 rounded-md hover:bg-gray-700">
+                     <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    Leaderboard
+                </a>
+            </nav>
+             <a href="teacher-dashboard.html" class="text-sm text-center text-blue-300 hover:text-blue-100 mt-4">Switch to Teacher View</a>
+        </aside>
+
+        <!-- Main content -->
+        <div class="flex-1 flex flex-col overflow-y-auto">
+             <!-- Top bar -->
+             <header class="bg-white shadow-sm p-4 flex justify-between items-center">
+                 <button class="md:hidden text-gray-600">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+                <h1 class="text-xl font-semibold text-gray-800 md:ml-0 ml-4">Chat with AI Assistant</h1>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <svg class="h-6 w-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://via.placeholder.com/40?text=A" alt="Student Avatar" class="h-8 w-8 rounded-full mr-2">
+                        <span class="text-gray-700">Alex Johnson</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content area -->
+            <main class="p-6 flex-1 flex flex-col">
+
+                <!-- Context Selection Area -->
+                <div class="bg-white p-4 rounded-lg shadow-md mb-4 flex flex-col sm:flex-row sm:items-center gap-4">
+                    <div class="flex-1">
+                        <label for="transcript-context" class="block text-sm font-medium text-gray-700 mb-1">Select Lecture Transcript(s) Context:</label>
+                        <select id="transcript-context" name="transcript-context[]" class="block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm h-10">
+                            <option value="phy-wk4">Physics - Week 4: Kinematics</option>
+                            <option value="chem-wk3">Chemistry - Lab Safety</option>
+                            <option value="sci-bio1">Science - Cell Biology Basics</option>
+                            <!-- Add more available transcripts -->
+                        </select>
+                         <p class="text-xs text-gray-500 mt-1">Hold Ctrl/Cmd to select multiple.</p>
+                    </div>
+                    <div class="flex-shrink-0">
+                         <label for="upload-material" class="block text-sm font-medium text-gray-700 mb-1">Add Your Notes/Materials:</label>
+                         <input type="file" id="upload-material" name="upload-material" multiple class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100">
+                         <p class="text-xs text-gray-500 mt-1">Optional (PDF, DOCX, TXT)</p>
+                    </div>
+                </div>
+
+                <!-- Chat Interface -->
+                <div class="bg-white rounded-lg shadow-md flex-1 flex flex-col overflow-hidden">
+                    <!-- Message Display Area -->
+                    <div id="chat-messages" class="flex-1 p-4 space-y-4 overflow-y-auto">
+                        <!-- Example Messages -->
+                        <div class="flex flex-col">
+                            <div class="chat-bubble-ai p-3 rounded-lg max-w-xs lg:max-w-md text-sm text-gray-700">
+                                Hello Alex! How can I help you today? Feel free to ask questions about the selected transcripts or your uploaded materials.
+                            </div>
+                        </div>
+                         <div class="flex flex-col">
+                            <div class="chat-bubble-user p-3 rounded-lg max-w-xs lg:max-w-md text-sm text-gray-800">
+                                Can you explain the difference between velocity and acceleration based on the Physics Week 4 lecture?
+                            </div>
+                         </div>
+                         <div class="flex flex-col">
+                             <div class="chat-bubble-ai p-3 rounded-lg max-w-xs lg:max-w-md text-sm text-gray-700">
+                                Certainly! According to the transcript from Physics Week 4:
+                                <ul class="list-disc list-inside mt-1 space-y-1">
+                                    <li><strong>Velocity</strong> refers to the rate of change of an object's position and includes its speed and direction.</li>
+                                    <li><strong>Acceleration</strong> refers to the rate of change of an object's velocity. This means it can be a change in speed, a change in direction, or both.</li>
+                                </ul>
+                                Does that make sense?
+                            </div>
+                        </div>
+                         <!-- More messages would appear here -->
+                    </div>
+
+                    <!-- Input Area -->
+                    <div class="p-4 bg-gray-50 border-t border-gray-200">
+                        <div class="flex items-center space-x-3">
+                            <textarea id="chat-input" rows="1" class="flex-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm resize-none" placeholder="Type your question here..."></textarea>
+                            <button type="button" class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full shadow-sm">
+                                <svg class="h-5 w-5 transform rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+     <script>
+        // Basic script to auto-resize textarea
+        const textarea = document.getElementById('chat-input');
+        textarea.addEventListener('input', () => {
+            textarea.style.height = 'auto'; // Reset height
+            textarea.style.height = `${textarea.scrollHeight}px`; // Set to scroll height
+        });
+    </script>
+</body>
+</html>

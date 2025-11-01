@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Results - Student</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+     <style> ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #f1f1f1; } ::-webkit-scrollbar-thumb { background: #888; border-radius: 3px;} ::-webkit-scrollbar-thumb:hover { background: #555; } </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <aside class="hidden md:flex w-64 flex-col space-y-2 bg-gray-800 text-white p-4 overflow-y-auto">
+            <h2 class="text-xl font-semibold mb-4">ThinkNext</h2>
+            <nav class="flex-1">
+                 <a href="student-dashboard.html" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-700">
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    Dashboard
+                </a>
+                <a href="student-assignment-submission.html" class="flex items-center px-4 py-2 mt-2 rounded-md hover:bg-gray-700">
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                     Assignments
+                </a>
+                <a href="student-result-details.html" class="flex items-center px-4 py-2 mt-2 rounded-md hover:bg-gray-700">
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    Grades
+                </a>
+                 <a href="student-quizzes.html" class="flex items-center px-4 py-2 mt-2 bg-gray-700 rounded-md hover:bg-gray-600"> <!-- Highlight Quizzes -->
+                     <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.79 4 4s-1.79 4-4 4c-1.742 0-3.223-.835-3.772-2M12 5v.01M12 19v.01M12 12a1 1 0 110-2 1 1 0 010 2z"></path></svg>
+                    Quizzes
+                </a>
+                 <a href="student-chat.html" class="flex items-center px-4 py-2 mt-2 rounded-md hover:bg-gray-700">
+                     <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 5.523-4.477 10-10 10S1 17.523 1 12 5.477 2 11 2s10 4.477 10 10z"></path></svg>
+                    Chat with AI
+                </a>
+                 <a href="#leaderboard" class="flex items-center px-4 py-2 mt-2 rounded-md hover:bg-gray-700">
+                     <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    Leaderboard
+                </a>
+            </nav>
+             <a href="teacher-dashboard.html" class="text-sm text-center text-blue-300 hover:text-blue-100 mt-4">Switch to Teacher View</a>
+        </aside>
+
+        <!-- Main content -->
+        <div class="flex-1 flex flex-col overflow-y-auto">
+            <!-- Top bar -->
+             <header class="bg-white shadow-sm p-4 flex justify-between items-center">
+                  <button class="md:hidden text-gray-600">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+                 <h1 class="text-xl font-semibold text-gray-800 md:ml-0 ml-4">Assignment Result</h1>
+                  <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <svg class="h-6 w-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                        <!-- No dot for student -->
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://via.placeholder.com/40?text=A" alt="Student Avatar" class="h-8 w-8 rounded-full mr-2">
+                        <span class="text-gray-700">Alex Johnson</span> <!-- Assuming Alex == Albert for this example -->
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content area -->
+             <main class="p-6 flex-1">
+                <div class="max-w-5xl mx-auto">
+                    <div class="flex justify-between items-start mb-4">
+                         <div>
+                            <h2 class="text-2xl font-semibold text-gray-800">History Essay Results</h2>
+                            <p class="text-sm text-gray-600">Submitted on time</p>
+                         </div>
+                         <div class="text-right">
+                             <p class="text-sm font-medium text-gray-500">AI Score: <span class="text-lg font-bold text-blue-600">95%</span></p>
+                             <p class="text-sm font-medium text-gray-500">Teacher's Score: <span class="text-lg font-bold text-gray-700">92%</span></p>
+                         </div>
+                    </div>
+
+                    <!-- Your Submission with Highlights -->
+                     <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Your Submission</h3>
+                        <div class="prose max-w-none text-gray-700 border border-gray-200 p-4 rounded bg-gray-50 max-h-96 overflow-y-auto">
+                            <p><span class="bg-green-100 px-1 rounded">The long-term consequences of the Treaty of Versailles were profound and far-reaching, arguably setting the stage for future global conflict.</span> Signed in 1919, the treaty officially ended World War I but imposed harsh terms on Germany...</p>
+                            <p>Economically, the reparations demanded were astronomical, <span class="bg-green-100 px-1 rounded">contributing heavily to the hyperinflation experienced by the Weimar Republic</span> in the early 1920s. This economic instability fostered widespread resentment...</p>
+                             <p>Politically, the treaty redrew the map of Europe... The principle of self-determination was applied inconsistently, leaving significant German-speaking minorities in newly formed countries...</p>
+                             <p>Furthermore, the failure of the League of Nations... The US Senate's refusal to ratify the treaty and join the League significantly undermined its authority. <span class="bg-orange-100 px-1 rounded">The League's inability to effectively address aggression in the 1930s</span>... demonstrated its weakness.</p>
+                             <p>The perceived injustice and humiliation of the treaty... became a powerful rallying cry for nationalist and extremist groups... <span class="bg-orange-100 px-1 rounded">There was also a mention of the Treaty of Tordesillas which seems out of place here, perhaps confusing it with another post-WWI treaty like Saint-Germain.</span></p>
+                             <p>In conclusion, the Treaty of Versailles, intended to secure a lasting peace, paradoxically contributed to the instability...</p>
+                              <p><em>(Sources Cited: Placeholder for bibliography)</em></p>
+                        </div>
+                         <p class="text-xs text-gray-500 mt-2 italic">Note: Highlighted sections correspond to specific AI feedback below.</p>
+                    </div>
+
+                     <!-- AI Feedback & Insights Section -->
+                    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">AI Feedback & Insights</h3>
+                        <div class="space-y-5">
+
+                             <div>
+                                <h4 class="text-md font-semibold text-gray-700 mb-1 flex items-center">Argument Strength & Thesis <span class="ml-2 text-yellow-500">★★★★☆</span></h4>
+                                <p class="text-sm text-gray-600 pl-4 border-l-4 border-blue-300">
+                                    Your core argument about the economic causes is quite strong and well-introduced (<span class="bg-green-100 text-xs px-1 rounded">highlighted green above</span>).<br>
+                                    <strong>Creative Suggestion:</strong> Could you have also briefly considered the social ripple effects in your thesis for even greater depth?
+                                </p>
+                            </div>
+
+                             <div>
+                                <h4 class="text-md font-semibold text-gray-700 mb-1">Evidence & Support</h4>
+                                <p class="text-sm text-gray-600 pl-4 border-l-4 border-green-300">
+                                    Good use of the hyperinflation example (<span class="bg-green-100 text-xs px-1 rounded">highlighted green above</span>).
+                                </p>
+                                <p class="text-sm text-gray-600 pl-4 border-l-4 border-orange-300 mt-1">
+                                    The point about the League of Nations' weakness (<span class="bg-orange-100 text-xs px-1 rounded">highlighted orange above</span>) is relevant, but the link to subsequent events could be stronger. Perhaps explicitly connect its failures to emboldening aggressors?<br>
+                                     <strong>Alternative Approach:</strong> Instead of just stating the weakness, briefly mention a specific instance (like Manchuria) and its consequence.
+                                </p>
+                                <p class="text-sm text-gray-600 pl-4 border-l-4 border-red-300 mt-1">
+                                     Minor confusion detected: The Treaty of Tordesillas (<span class="bg-orange-100 text-xs px-1 rounded">highlighted orange above</span>) is from a different historical era. The AI suspects you might have meant a treaty related to Austria-Hungary, like Saint-Germain. Careful checking of terms is important!
+                                </p>
+                             </div>
+
+                             <div>
+                                <h4 class="text-md font-semibold text-gray-700 mb-1">Structure & Flow</h4>
+                                <p class="text-sm text-gray-600 pl-4 border-l-4 border-green-300">
+                                    Logical flow between the initial paragraphs is excellent.
+                                </p>
+                                 <p class="text-sm text-gray-600 pl-4 border-l-4 border-orange-300 mt-1">
+                                     The transition into the paragraph discussing the League of Nations feels a bit abrupt. <br>
+                                     <strong>Consider:</strong> Starting that paragraph with a sentence that directly links the political/territorial changes to the attempt at international peacekeeping.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h4 class="text-md font-semibold text-gray-700 mb-1">Clarity & Style</h4>
+                                <p class="text-sm text-gray-600 pl-4 border-l-4 border-green-300">
+                                     Writing is clear and academic overall.
+                                </p>
+                                 <p class="text-sm text-gray-600 pl-4 border-l-4 border-orange-300 mt-1">
+                                    One or two sentences might be slightly long - review for conciseness. <br>
+                                     <strong>Style Suggestion:</strong> Varying sentence starters more in the conclusion could add impact.
+                                </p>
+                             </div>
+
+                            <div>
+                                <h4 class="text-md font-semibold text-gray-700 mb-1 flex items-center">Originality & Critical Thinking <span class="ml-2 text-yellow-500">★★★★☆</span></h4>
+                                <p class="text-sm text-gray-600 pl-4 border-l-4 border-blue-300">
+                                     You brought in a unique perspective by connecting the economic hardship directly to the weakening of the Weimar government's legitimacy. This analysis demonstrates strong independent thought beyond just summarizing facts. <br>
+                                    <strong>Further Exploration:</strong> How might the *social* consequences of the treaty (beyond just economics) have also impacted political stability in Germany?
+                                </p>
+                            </div>
+
+                             <div>
+                                <h4 class="text-md font-semibold text-gray-700 mb-1">Concept Connections</h4>
+                                 <p class="text-sm text-gray-600 pl-4 border-l-4 border-blue-300">
+                                    AI detected strong links to concepts: <span class="font-medium">Treaty of Versailles Terms, Reparations, Hyperinflation, League of Nations Weakness, Rise of Nationalism.</span> <br>
+                                    Connection to <span class="font-medium text-orange-600">Post-WWI Territorial Disputes (Specific Examples)</span> could be explored further with more detail.
+                                </p>
+                             </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Teacher Comments Section -->
+                     <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Teacher's Comments</h3>
+                        <div class="text-gray-700 text-sm space-y-2">
+                             <p>Excellent work, Alex! Your analysis of the economic impacts is particularly strong. The AI picked up on the minor treaty confusion – good catch to be mindful of for future historical writing. I agree with the AI's suggestion about strengthening the transition between the political changes and the League of Nations discussion. Overall, a very well-argued essay demonstrating solid critical thinking.</p>
+                            <!-- Placeholder if no comments yet: <p class="text-gray-500 italic">No comments added by the teacher yet.</p> -->
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-6">
+                         <a href="student-dashboard.html" class="text-sm text-blue-600 hover:underline">← Back to Dashboard</a>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

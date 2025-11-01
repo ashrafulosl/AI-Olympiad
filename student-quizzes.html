@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizzes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style> ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #f1f1f1; } ::-webkit-scrollbar-thumb { background: #888; border-radius: 3px;} ::-webkit-scrollbar-thumb:hover { background: #555; } </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+         <aside class="hidden md:flex w-64 flex-col space-y-2 bg-gray-800 text-white p-4 overflow-y-auto">
+            <h2 class="text-xl font-semibold mb-4">ThinkNext</h2>
+            <nav class="flex-1">
+                 <a href="student-dashboard.html" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-700">
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    Dashboard
+                </a>
+                <a href="student-assignment-submission.html" class="flex items-center px-4 py-2 mt-2 rounded-md hover:bg-gray-700">
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                     Assignments
+                </a>
+                <a href="student-result-details.html" class="flex items-center px-4 py-2 mt-2 rounded-md hover:bg-gray-700">
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    Grades
+                </a>
+                 <a href="student-quizzes.html" class="flex items-center px-4 py-2 mt-2 bg-gray-700 rounded-md hover:bg-gray-600"> <!-- Highlight Quizzes -->
+                     <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.79 4 4s-1.79 4-4 4c-1.742 0-3.223-.835-3.772-2M12 5v.01M12 19v.01M12 12a1 1 0 110-2 1 1 0 010 2z"></path></svg>
+                    Quizzes
+                </a>
+                 <a href="student-chat.html" class="flex items-center px-4 py-2 mt-2 rounded-md hover:bg-gray-700">
+                     <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 5.523-4.477 10-10 10S1 17.523 1 12 5.477 2 11 2s10 4.477 10 10z"></path></svg>
+                    Chat with AI
+                </a>
+                 <a href="#leaderboard" class="flex items-center px-4 py-2 mt-2 rounded-md hover:bg-gray-700">
+                     <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    Leaderboard
+                </a>
+            </nav>
+             <a href="teacher-dashboard.html" class="text-sm text-center text-blue-300 hover:text-blue-100 mt-4">Switch to Teacher View</a>
+        </aside>
+
+        <!-- Main content -->
+        <div class="flex-1 flex flex-col overflow-y-auto">
+            <!-- Top bar -->
+             <header class="bg-white shadow-sm p-4 flex justify-between items-center">
+                 <button class="md:hidden text-gray-600">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+                <h1 class="text-xl font-semibold text-gray-800 md:ml-0 ml-4">Quizzes</h1>
+                 <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <svg class="h-6 w-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                    </div>
+                    <div class="flex items-center">
+                         <img src="https://via.placeholder.com/40?text=A" alt="Student Avatar" class="h-8 w-8 rounded-full mr-2">
+                        <span class="text-gray-700">Alex Johnson</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content area -->
+             <main class="p-6 flex-1">
+
+                <!-- Generate Practice Quiz Section -->
+                <div class="bg-white p-6 rounded-lg shadow-md mb-8 max-w-5xl mx-auto">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4">Generate a Practice Quiz</h2>
+                     <form class="space-y-4">
+                        <div>
+                            <label for="practice-transcript-select" class="block text-sm font-medium text-gray-700">Select Lecture Transcript(s) to Practice:</label>
+                            <select id="practice-transcript-select" name="practice-transcript-select[]"  class="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm h-10">
+                                <option value="phy-wk4">Physics - Week 4: Kinematics</option>
+                                <option value="chem-wk3">Chemistry - Lab Safety</option>
+                                <option value="sci-bio1">Science - Cell Biology Basics</option>
+                                <!-- Add more available transcripts -->
+                            </select>
+                             <p class="text-xs text-gray-500 mt-1">Select one or more lectures to base your practice quiz on (Hold Ctrl/Cmd to select multiple).</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="practice-num-questions" class="block text-sm font-medium text-gray-700">Number of Questions (Optional)</label>
+                                <input type="number" id="practice-num-questions" name="practice-num-questions" placeholder="Default (e.g., 5)" min="1" max="20" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            </div>
+                             <div>
+                                 <label class="block text-sm font-medium text-gray-700">Preferred Question Types (Optional)</label>
+                                <div class="mt-2 flex space-x-4">
+                                     <label class="flex items-center">
+                                        <input type="checkbox" name="practice-q-type[]" value="mcq" checked class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                                        <span class="ml-2 text-sm text-gray-700">MCQ</span>
+                                    </label>
+                                     <label class="flex items-center">
+                                        <input type="checkbox" name="practice-q-type[]" value="tf" checked class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                                        <span class="ml-2 text-sm text-gray-700">True False</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" name="practice-q-type[]" value="fill" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                                        <span class="ml-2 text-sm text-gray-700">Fill Gap</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" name="practice-q-type[]" value="fill" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                                        <span class="ml-2 text-sm text-gray-700">Short Answer</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center pt-2">
+                            <a href="student-take-quiz-demo.html" onclick="alert('Generating practice quiz based on your selection (simulation)... Starting now!')" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded transition duration-150 ease-in-out">
+                                Generate & Start Practice Quiz
+                            </a>
+                        </div>
+                    </form>
+                </div>
+
+                 <hr class="my-8 border-gray-300">
+
+                 <!-- Teacher-Assigned Quizzes Section -->
+                <div>
+                     <h2 class="text-xl font-semibold text-gray-800 mb-4 text-center">Teacher-Assigned Quizzes</h2>
+                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                        <!-- Quiz Card 1 -->
+                        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between border border-gray-200">
+                             <div>
+                                <h3 class="text-lg font-semibold mb-2 text-gray-800">Kinematics Check</h3>
+                                <p class="text-sm text-gray-600 mb-1">Assigned by: <span class="font-medium">Dr. Reed</span></p>
+                                <p class="text-sm text-gray-600 mb-1">Based on: <span class="font-medium">Physics - Week 4 Lecture</span></p>
+                                <p class="text-sm text-gray-600 mb-4">Type: <span class="font-medium">MCQ, True/False</span> | Due: <span class="font-medium text-orange-600">Nov 10</span></p>
+                            </div>
+                            <a href="student-take-quiz-demo.html" class="mt-auto w-full text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-150 ease-in-out">
+                                Start Quiz
+                            </a>
+                        </div>
+
+                        <!-- Quiz Card 2 -->
+                        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between border border-gray-200">
+                            <div>
+                                <h3 class="text-lg font-semibold mb-2 text-gray-800">Lab Safety Review</h3>
+                                 <p class="text-sm text-gray-600 mb-1">Assigned by: <span class="font-medium">Dr. Reed</span></p>
+                                 <p class="text-sm text-gray-600 mb-1">Based on: <span class="font-medium">Chemistry - Lab Safety Lecture</span></p>
+                                <p class="text-sm text-gray-600 mb-4">Type: <span class="font-medium">Fill in the Gap, Matching</span> | Due: <span class="font-medium text-gray-500">Nov 15</span></p>
+                            </div>
+                             <a href="student-take-quiz-demo.html" class="mt-auto w-full text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-150 ease-in-out">
+                                 Start Quiz
+                            </a>
+                        </div>
+
+                        <!-- Quiz Card 3 (Example with Short Answer) -->
+                         <div class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between border border-gray-200">
+                             <div>
+                                 <h3 class="text-lg font-semibold mb-2 text-gray-800">Cell Biology Concepts</h3>
+                                 <p class="text-sm text-gray-600 mb-1">Assigned by: <span class="font-medium">Dr. Reed</span></p>
+                                <p class="text-sm text-gray-600 mb-1">Based on: <span class="font-medium">Science - Cell Biology Basics Lecture</span></p>
+                                <p class="text-sm text-gray-600 mb-4">Type: <span class="font-medium">MCQ, Short Answer</span> | Due: <span class="font-medium text-gray-500">Nov 18</span></p>
+                            </div>
+                             <a href="student-take-quiz-demo.html" class="mt-auto w-full text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-150 ease-in-out">
+                                 Start Quiz
+                            </a>
+                        </div>
+
+                         <!-- Example Completed Quiz -->
+                         <div class="bg-green-50 p-6 rounded-lg shadow-md flex flex-col justify-between border border-green-200 opacity-75">
+                             <div>
+                                 <h3 class="text-lg font-semibold mb-2 text-gray-700">Introductory Concepts Quiz (Completed)</h3>
+                                 <p class="text-sm text-gray-600 mb-1">Assigned by: <span class="font-medium">Dr. Reed</span></p>
+                                <p class="text-sm text-gray-600 mb-1">Based on: <span class="font-medium">General Science - Week 1</span></p>
+                                <p class="text-sm text-green-700 font-medium mb-4">Score: 85%</p>
+                            </div>
+                            <button class="mt-auto w-full text-center bg-gray-400 text-white font-bold py-2 px-4 rounded cursor-not-allowed">
+                                Completed
+                            </button>
+                        </div>
+
+                        <!-- Add more quiz cards as needed -->
+
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

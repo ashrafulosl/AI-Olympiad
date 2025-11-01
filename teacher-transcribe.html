@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcribe Lecture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #888; border-radius: 3px;}
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+        /* Simple blinking animation for recording indicator */
+        @keyframes blink { 50% { opacity: 0; } }
+        .recording-active { animation: blink 1s linear infinite; }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+         <aside class="hidden md:flex w-64 flex-col space-y-2 bg-gray-800 text-white p-4 overflow-y-auto">
+            <h2 class="text-xl font-semibold mb-4">ThinkNext</h2>
+            <nav class="flex-1">
+                <a href="teacher-dashboard.html" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-700">
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    Dashboard
+                </a>
+                <a href="#classes" class="flex items-center px-4 py-2 mt-2 rounded-md hover:bg-gray-700">
+                     <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                     Classes
+                </a>
+                <a href="assignment-results.html" class="flex items-center px-4 py-2 mt-2 rounded-md hover:bg-gray-700">
+                     <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    Assignments
+                </a>
+                 <a href="teacher-transcribe.html" class="flex items-center px-4 py-2 mt-2 bg-gray-700 rounded-md hover:bg-gray-600"> <!-- Highlight Transcribe -->
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                    Transcribe
+                </a>
+                 <a href="teacher-generate-quiz.html" class="flex items-center px-4 py-2 mt-2 rounded-md hover:bg-gray-700">
+                     <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.79 4 4s-1.79 4-4 4c-1.742 0-3.223-.835-3.772-2M12 5v.01M12 19v.01M12 12a1 1 0 110-2 1 1 0 010 2z"></path></svg>
+                    Generate Quiz
+                </a>
+                 <a href="#settings" class="flex items-center px-4 py-2 mt-2 rounded-md hover:bg-gray-700">
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    Settings
+                </a>
+            </nav>
+            <a href="student-dashboard.html" class="text-sm text-center text-blue-300 hover:text-blue-100 mt-4">Switch to Student View</a>
+        </aside>
+
+        <!-- Main content -->
+        <div class="flex-1 flex flex-col overflow-y-auto">
+            <!-- Top bar -->
+            <header class="bg-white shadow-sm p-4 flex justify-between items-center">
+                 <button class="md:hidden text-gray-600">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+                <h1 class="text-xl font-semibold text-gray-800 md:ml-0 ml-4">Transcribe Lecture</h1>
+                 <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <svg class="h-6 w-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                        <span class="absolute top-0 right-0 h-2 w-2 bg-orange-500 rounded-full"></span>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://via.placeholder.com/40" alt="Teacher Avatar" class="h-8 w-8 rounded-full mr-2">
+                        <span class="text-gray-700">Dr. Evelyn Reed</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content area -->
+            <main class="p-6 flex-1">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                    <!-- Option 1: Upload Existing File Card -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h2 class="text-xl font-semibold text-gray-800 mb-4">Option 1: Upload Lecture File</h2>
+                        <form class="space-y-4">
+                            <div>
+                                <label for="upload-lecture-title" class="block text-sm font-medium text-gray-700">Lecture Title</label>
+                                <input type="text" id="upload-lecture-title" name="upload-lecture-title" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="e.g., Physics - Week 5: Thermodynamics">
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="upload-lecture-date" class="block text-sm font-medium text-gray-700">Lecture Date</label>
+                                    <input type="date" id="upload-lecture-date" name="upload-lecture-date" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                </div>
+                                <div>
+                                    <label for="upload-lecture-class" class="block text-sm font-medium text-gray-700">Assign to Class</label>
+                                    <select id="upload-lecture-class" name="upload-lecture-class" class="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                        <option>Grade 10 - Physics</option>
+                                        <option>Grade 11 - Chemistry</option>
+                                        <option>Grade 9 - General Science</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="lecture-file" class="block text-sm font-medium text-gray-700">Upload Lecture File (Audio/Video)</label>
+                                <input type="file" id="lecture-file" name="lecture-file" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                                <p class="text-xs text-gray-500 mt-1">Supported formats: MP3, WAV, MP4, MOV, etc.</p>
+                            </div>
+                            <div class="text-right">
+                                <button type="button" onclick="alert('Transcription process started for uploaded file (simulation)!')" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-150 ease-in-out">
+                                    Start Transcription from File
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Option 2: Record Live Lecture Card -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h2 class="text-xl font-semibold text-gray-800 mb-4">Option 2: Record Live Lecture</h2>
+                        <form class="space-y-4">
+                             <div>
+                                <label for="record-lecture-title" class="block text-sm font-medium text-gray-700">Lecture Title</label>
+                                <input type="text" id="record-lecture-title" name="record-lecture-title" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="e.g., History - Chapter 3 Discussion">
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="record-lecture-date" class="block text-sm font-medium text-gray-700">Lecture Date</label>
+                                    <input type="date" id="record-lecture-date" name="record-lecture-date" value="" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    <script>document.getElementById('record-lecture-date').valueAsDate = new Date();</script> <!-- Set default to today -->
+                                </div>
+                                <div>
+                                    <label for="record-lecture-class" class="block text-sm font-medium text-gray-700">Assign to Class</label>
+                                    <select id="record-lecture-class" name="record-lecture-class" class="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                        <option>Grade 10 - Physics</option>
+                                        <option>Grade 11 - Chemistry</option>
+                                        <option>Grade 9 - General Science</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Recording Controls -->
+                            <div class="border p-4 rounded-md bg-gray-50 space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm font-medium text-gray-700">Status: <span id="recording-status" class="font-bold text-gray-500">Idle</span></span>
+                                    <span id="recording-indicator" class="hidden h-3 w-3 bg-red-500 rounded-full recording-active"></span> <!-- Blinking dot -->
+                                </div>
+                                <div class="flex space-x-3">
+                                     <button type="button" id="start-record-btn" onclick="startRecordingSimulation()" class="flex-1 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-150 ease-in-out flex items-center justify-center space-x-2">
+                                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-1v-2.07z" clip-rule="evenodd"></path></svg>
+                                        <span>Start Recording</span>
+                                    </button>
+                                    <button type="button" id="stop-record-btn" onclick="stopRecordingSimulation()" class="flex-1 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition duration-150 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2" disabled>
+                                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8 7a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1zm0 4a1 1 0 112 0v2a1 1 0 11-2 0v-2z" clip-rule="evenodd"></path></svg>
+                                        <span>Stop Recording</span>
+                                    </button>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1">Requires microphone access permission from your browser.</p>
+
+                                <!-- Optional: Audio player for playback after recording -->
+                                <audio id="audio-playback" controls class="w-full hidden mt-2"></audio>
+                            </div>
+
+                            <div class="text-right">
+                                <button type="button" id="transcribe-recording-btn" onclick="alert('Transcription process started for live recording (simulation)!')" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-150 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                                    Transcribe Recording
+                                </button>
+                            </div>
+                        </form>
+                        <p class="text-xs text-gray-500 mt-4 italic">*Live recording functionality requires JavaScript and browser MediaRecorder API support.</p>
+                    </div>
+                </div>
+
+
+                 <!-- Past Transcriptions Card (Remains the same) -->
+                 <div class="bg-white p-6 rounded-lg shadow-md mt-8 lg:col-span-2"> <!-- Span across two columns on large screens -->
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4">Past Transcriptions</h2>
+                    <div class="overflow-x-auto">
+                         <table class="w-full table-auto">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Lecture Title</th>
+                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Class</th>
+                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">Physics - Week 4: Kinematics</td>
+                                    <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-500">Grade 10 - Physics</td>
+                                    <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-500">2023-10-20</td>
+                                    <td class="px-4 py-2 whitespace-nowrap text-sm text-green-600 font-medium">Complete</td>
+                                    <td class="px-4 py-2 whitespace-nowrap text-sm font-medium space-x-2">
+                                        <a href="#view-transcript" class="text-indigo-600 hover:text-indigo-900">View</a>
+                                        <a href="teacher-generate-quiz.html" class="text-blue-600 hover:text-blue-900">Gen Quiz</a>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">Chemistry - Intro to Moles</td>
+                                    <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-500">Grade 11 - Chemistry</td>
+                                     <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-500">2023-10-18</td>
+                                    <td class="px-4 py-2 whitespace-nowrap text-sm text-yellow-600 font-medium">Processing...</td>
+                                    <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-400">
+                                        N/A
+                                    </td>
+                                </tr>
+                                 <tr class="hover:bg-gray-50">
+                                    <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">Science - Cell Biology Basics</td>
+                                    <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-500">Grade 9 - General Science</td>
+                                     <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-500">2023-10-15</td>
+                                     <td class="px-4 py-2 whitespace-nowrap text-sm text-red-600 font-medium">Failed</td>
+                                    <td class="px-4 py-2 whitespace-nowrap text-sm font-medium">
+                                        <a href="#" class="text-red-600 hover:text-red-900">Details</a>
+                                    </td>
+                                </tr>
+                                <!-- Add more rows as needed -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // --- Simulation Script for Recording UI ---
+        // Note: This does NOT actually record audio. It only simulates the UI changes.
+        const startBtn = document.getElementById('start-record-btn');
+        const stopBtn = document.getElementById('stop-record-btn');
+        const transcribeBtn = document.getElementById('transcribe-recording-btn');
+        const statusText = document.getElementById('recording-status');
+        const indicator = document.getElementById('recording-indicator');
+        const audioPlayback = document.getElementById('audio-playback'); // Optional playback
+
+        function startRecordingSimulation() {
+            alert('Requesting microphone access (simulation)... Recording Started!');
+            statusText.textContent = 'Recording...';
+            statusText.classList.remove('text-gray-500');
+            statusText.classList.add('text-red-600');
+            indicator.classList.remove('hidden');
+
+            startBtn.disabled = true;
+            stopBtn.disabled = false;
+            transcribeBtn.disabled = true;
+
+            // Hide playback if it was visible
+            audioPlayback.classList.add('hidden');
+            audioPlayback.src = '';
+        }
+
+        function stopRecordingSimulation() {
+            alert('Recording stopped (simulation). Processing audio...');
+            statusText.textContent = 'Processing...';
+            statusText.classList.remove('text-red-600');
+            statusText.classList.add('text-yellow-600');
+            indicator.classList.add('hidden');
+
+            startBtn.disabled = false; // Allow starting a new recording
+            stopBtn.disabled = true;
+
+            // Simulate processing and enabling transcription
+            setTimeout(() => {
+                statusText.textContent = 'Ready to Transcribe';
+                statusText.classList.remove('text-yellow-600');
+                statusText.classList.add('text-green-600');
+                transcribeBtn.disabled = false;
+
+                // Optional: Simulate having an audio file ready for playback
+                // In a real app, audioPlayback.src would be set to the Blob URL
+                 audioPlayback.classList.remove('hidden');
+                 console.log("Audio playback element would be populated here in a real app.");
+
+            }, 1500); // Simulate 1.5 seconds processing time
+        }
+         // Set default date for recording card
+        document.getElementById('record-lecture-date').valueAsDate = new Date();
+
+    </script>
+</body>
+</html>
