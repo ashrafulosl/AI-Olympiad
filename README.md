@@ -19,5 +19,3 @@ The core of the platform is a dual-dashboard system: one for teachers to create 
 * **Student Focus Mode:** A distraction-free environment for students when completing assignments. This mode includes a timer, a word count tracker, and simulates "Focus Mode" (screen lock) capabilities to ensure academic integrity.
 
 * **Gamified Student Dashboard:** The student dashboard encourages engagement by showing progress through points, a class rank, and earned badges.
-html`: The teacher's interface for building a new assignment with AI settings.
-* `assignment-results.html`: The teacher's view for analyzing AI-graded student results and class-wide performance.
